@@ -6,7 +6,10 @@
 
 import React, { Component } from 'react';
 import EchidaApp from 'echidna-common';
-import Module1 from './src/components/module1'
+import Module1 from './src/components/Module1'
+import {Map} from 'immutable';
+import {getReducersObject} from './src/reducers';
+
 import {
     Platform,
     Image,
@@ -24,6 +27,11 @@ export default class App extends Component {
             module1: this.renderModule1
         });
     }
+
+    // noinspection JSUnusedGlobalSymbols
+    static get DESCRIPTOR() {
+        return {reducers: getReducersObject()};
+    }
     
     // noinspection JSMethodCanBeStatic
     renderModule1() {
@@ -34,3 +42,5 @@ export default class App extends Component {
         return this.delegate.render();
     }
 }
+
+

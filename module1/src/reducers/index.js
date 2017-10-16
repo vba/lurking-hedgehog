@@ -1,4 +1,4 @@
-
+import { combineReducers } from 'redux';
 import {CHOOSE_SERVICE} from '../actions';
 
 const serviceReducer = (state = {}, action) => {
@@ -9,15 +9,15 @@ const serviceReducer = (state = {}, action) => {
             name: action.name
         };
         return selectedService;
-    }    
-}
-
-export default function reducer(state = {}, action) {
-    switch (action.type) {
-        case CHOOSE_SERVICE :
-        return Object.assign({}, state, {selectedService: serviceReducer(null, action)});
-
-        default:
-        return state;
+        default: return state;
     }
+};
+
+
+export function getReducersObject () {
+    return {
+        selectedService: serviceReducer
+    };
 }
+
+export default combineReducers(getReducersObject());

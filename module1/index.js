@@ -6,19 +6,17 @@ import React, { Component } from 'react';
 
 import { Provider } from 'react-redux';
 
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createStore } from 'redux';
 
-import reducer from './src/reducers';
+import reducers from './src/reducers';
 
-const store = createStore(reducer, {});
-
-store.subscribe(() => alert(JSON.stringify(store.getState())));
+const store = createStore(reducers, {});
 
 class ReduxApp extends Component {
     render() {
         return (
             <Provider store={store}>
-                {() => <App />}
+                <App />
             </Provider>
         );
     }
