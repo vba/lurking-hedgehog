@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "immutable": "^3.8.2",
+    "react-native-maps": "^0.17.0",
     "underscore": "^1.8.3"
   }
 }
