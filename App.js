@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import {
     Platform,
@@ -9,7 +8,7 @@ import {
     ScrollView
 } from 'react-native';
 import Header from "./src/components/Header";
-import Module1 from "./src/components/Content";
+import Content from "./src/components/Content";
 
 export default class App extends Component {
 
@@ -18,7 +17,7 @@ export default class App extends Component {
             <View style={{flex: 1}} >
                 <Header/>
                 <ScrollView contentContainerStyle={styles.container}>
-                    <Module1 />
+                    <Content />
                 </ScrollView>
             </View>
         );

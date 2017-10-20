@@ -1,14 +1,29 @@
 import { combineReducers } from 'redux';
-import {CHOOSE_SERVICE} from '../actions';
+import {CHOOSE_SERVICE, NEAREST_SERVICES, NEAREST_GAS_STATIONS} from '../actions';
 
 const serviceReducer = (state = {}, action) => {
     switch (action.type) {
         case CHOOSE_SERVICE :
-        const selectedService = {
-            id: action.id,
-            name: action.name
-        };
-        return selectedService;
+            return {
+                id: action.id,
+                name: action.name
+            };
+        default: return state;
+    }
+};
+
+const radiusPointsReducer = (state = {}, action) => {
+    switch (action.type) {
+        case NEAREST_GAS_STATIONS :
+            return {
+                ...state,
+                gasStations: action.stations
+            };
+        case NEAREST_SERVICES:
+            return {
+                ...state,
+                services: action.services
+            };
         default: return state;
     }
 };
@@ -16,7 +31,8 @@ const serviceReducer = (state = {}, action) => {
 
 export function getReducersObject () {
     return {
-        selectedService: serviceReducer
+        selectedService: serviceReducer,
+        radiusPoints: radiusPointsReducer,
     };
 }
 
